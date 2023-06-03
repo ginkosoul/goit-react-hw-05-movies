@@ -19,8 +19,13 @@ the movie page. /movies/get-movie-credits Request cast info for the movie page.
 The app should have the following routes. If a user has accessed a non-existent
 route, it must be redirected to the home page.
 
-The
-``Home'' component, the home page with a list of popular movies. The `/'/movies'`- component`Movies`, a page of movie search by keyword. keyword. `/movies/:movieId'`- component`MovieDetails`, a page with detailed information about the movie. `/movies/:movieId/cast`- component`Cast`, information about the cast. Rendered on the page `MovieDetails`. `/movies/:movieId/reviews`- component`Reviews`, information about reviews. Rendered on the page `MovieDetails`.
+The `Home` component, the home page with a list of popular movies. The
+`/'/movies'`- component`Movies`, a page of movie search by keyword. keyword.
+`/movies/:movieId'`- component`MovieDetails`, a page with detailed information
+about the movie. `/movies/:movieId/cast`- component`Cast`, information about the
+cast. Rendered on the page `MovieDetails`. `/movies/:movieId/reviews`-
+component`Reviews`, information about reviews. Rendered on the page
+`MovieDetails`.
 
 ## Code Splitting
 

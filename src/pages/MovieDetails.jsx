@@ -36,7 +36,7 @@ const MovieDetails = () => {
           <div style={{ display: 'flex', gap: '16px' }}>
             <ImgStyled
               src={
-                poster_path && backdrop_path
+                poster_path || backdrop_path
                   ? `https://image.tmdb.org/t/p/w500${
                       poster_path || backdrop_path
                     }`

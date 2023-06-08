@@ -24,7 +24,7 @@ export const FilmListItem = ({
       <StyledItem to={`/movies/${id}`} state={{ from: location }}>
         <ImgStyled
           src={
-            poster_path && backdrop_path
+            poster_path || backdrop_path
               ? `https://image.tmdb.org/t/p/w200/${
                   poster_path || backdrop_path
                 }`

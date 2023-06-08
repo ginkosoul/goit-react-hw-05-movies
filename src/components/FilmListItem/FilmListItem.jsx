@@ -3,6 +3,9 @@ import { useLocation } from 'react-router-dom';
 import { StyledItem } from './FilmList.styled';
 import { Genres } from 'components';
 
+const defaultImg =
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/390px-No-Image-Placeholder.svg.png';
+
 export const FilmListItem = ({
   id,
   title,
@@ -19,8 +22,12 @@ export const FilmListItem = ({
     <li>
       <StyledItem to={`/movies/${id}`} state={{ from: location }}>
         <ImgStyled
-          src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
-          width="120"
+          src={
+            poster_path
+              ? `https://image.tmdb.org/t/p/w200/${poster_path}`
+              : defaultImg
+          }
+          style={{ height: '180px', width: '120px' }}
           alt={title || name}
         />
         <div>

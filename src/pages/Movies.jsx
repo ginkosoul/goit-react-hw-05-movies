@@ -1,9 +1,11 @@
 import { FilmList, SearchForm } from 'components';
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { searchFilms } from 'services';
 
 const Movies = () => {
-  const [query, setQuery] = useState('');
+  const [preloadQuery] = useSearchParams();
+  const [query, setQuery] = useState(() => preloadQuery.get('query'));
   const [error, setError] = useState(null);
   const [films, setFilms] = useState([]);
 

@@ -22,7 +22,10 @@ export const FilmListItem = ({
   const location = useLocation();
   return (
     <li>
-      <StyledItem to={`/${media_type}/${id}`} state={{ from: location }}>
+      <StyledItem
+        to={`/${media_type ?? 'movie'}/${id}`}
+        state={{ from: location }}
+      >
         <ImgStyled
           src={
             poster_path || backdrop_path

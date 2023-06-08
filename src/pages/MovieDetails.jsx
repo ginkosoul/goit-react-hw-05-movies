@@ -4,6 +4,9 @@ import { Suspense, useEffect, useRef, useState } from 'react';
 import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import { getFilm } from 'services';
 
+const defaultImg =
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/390px-No-Image-Placeholder.svg.png';
+
 const MovieDetails = () => {
   const location = useLocation();
   const backLinkLocationRef = useRef(location.state?.from ?? '/movies');
@@ -19,6 +22,7 @@ const MovieDetails = () => {
     title,
     overview,
     poster_path,
+    backdrop_path,
     vote_average,
     vote_count,
     runtime,
@@ -31,7 +35,13 @@ const MovieDetails = () => {
         <div>
           <div style={{ display: 'flex', gap: '16px' }}>
             <ImgStyled
-              src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+              src={
+                poster_path && backdrop_path
+                  ? `https://image.tmdb.org/t/p/w500${
+                      poster_path || backdrop_path
+                    }`
+                  : defaultImg
+              }
               alt={title || original_title}
               width="360"
             />

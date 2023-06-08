@@ -9,9 +9,10 @@ const defaultImg =
 export const FilmListItem = ({
   id,
   title,
-  name,
+  original_title,
   release_date,
   poster_path,
+  backdrop_path,
   first_air_date,
   vote_average,
   vote_count,
@@ -23,17 +24,19 @@ export const FilmListItem = ({
       <StyledItem to={`/movies/${id}`} state={{ from: location }}>
         <ImgStyled
           src={
-            poster_path
-              ? `https://image.tmdb.org/t/p/w200/${poster_path}`
+            poster_path && backdrop_path
+              ? `https://image.tmdb.org/t/p/w200/${
+                  poster_path || backdrop_path
+                }`
               : defaultImg
           }
           style={{ height: '180px', width: '120px' }}
-          alt={title || name}
+          alt={title || original_title}
         />
         <div>
-          <h4 style={{ marginBottom: '4px' }}>{`${title || name} (${new Date(
-            release_date || first_air_date
-          ).getFullYear()})`}</h4>
+          <h4 style={{ marginBottom: '4px' }}>{`${
+            title || original_title
+          } (${new Date(release_date || first_air_date).getFullYear()})`}</h4>
           <b>{vote_average}/10</b>
           <p style={{ marginBottom: '4px' }}>{vote_count}</p>
           <Genres options={genre_ids} />

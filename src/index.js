@@ -9,7 +9,7 @@ import { Context } from 'components';
 import { Global, ThemeProvider } from '@emotion/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <BrowserRouter basename="/goit-react-hw-05-movies">
       <Context>
         <ThemeProvider theme={theme}>
@@ -18,5 +18,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </ThemeProvider>
       </Context>
     </BrowserRouter>
-  // </React.StrictMode>
+  </React.StrictMode>
 );

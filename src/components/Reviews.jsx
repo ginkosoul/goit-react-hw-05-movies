@@ -4,14 +4,14 @@ import { useParams } from 'react-router-dom';
 import { getReviews } from 'services';
 
 const Reviews = () => {
-  const { movieId } = useParams();
+  const { movieId, movieType } = useParams();
   const [reviews, setReviews] = useState(null);
 
   useEffect(() => {
-    getReviews(movieId)
+    getReviews({ movieId, movieType })
       .then(setReviews)
       .catch(error => console.log(error.messge));
-  }, [movieId]);
+  }, [movieId, movieType]);
 
   return (
     <div>

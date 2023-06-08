@@ -41,8 +41,8 @@ export const searchFilms = async (query) => {
 }
 
 // https://api.themoviedb.org/3/movie/{movie_id}
-export const getFilm = async (movie_id) => {
-  const url = `/3/movie/${movie_id}`;
+export const getFilm = async ({ movieId, movieType }) => {
+  const url = `/3/${movieType}/${movieId}`;
     try {
       const { data } = await moviesAPI.get(url);
       return data;
@@ -52,8 +52,8 @@ export const getFilm = async (movie_id) => {
 }
 
 // https://api.themoviedb.org/3/movie/{movie_id}/credits
-export const getCredits = async (movie_id) => {
-  const url = `/3/movie/${movie_id}/credits`;
+export const getCredits = async ({ movieId, movieType }) => {
+  const url = `/3/${movieType}/${movieId}/credits`;
     try {
       const { data } = await moviesAPI.get(url);
       return data.cast;
@@ -63,8 +63,8 @@ export const getCredits = async (movie_id) => {
 }
 
 // https://api.themoviedb.org/3/movie/{movie_id}/reviews
-export const getReviews = async (movie_id) => {
-  const url = `/3/movie/${movie_id}/reviews`;
+export const getReviews = async ({ movieId, movieType }) => {
+  const url = `/3/${movieType}/${movieId}/reviews`;
     try {
       const { data } = await moviesAPI.get(url);
       return data.results;

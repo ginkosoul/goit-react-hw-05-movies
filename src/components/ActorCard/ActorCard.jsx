@@ -16,8 +16,10 @@ export const ActorCard = ({ profile_path, name, original_name, character }) => {
         alt={name || original_name}
       />
       <div>
-        <h3>{name || original_name}</h3>
-        <p>Role: {character}</p>
+        <h4>
+          {name || original_name}
+          <p style={{ color: 'gray' }}>{character}</p>
+        </h4>
       </div>
     </div>
   );

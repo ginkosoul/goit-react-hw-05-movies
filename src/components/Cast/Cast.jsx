@@ -4,14 +4,14 @@ import { getCredits } from 'services';
 import { ActorList } from 'components';
 
 const Cast = () => {
-  const { movieId } = useParams();
+  const { movieId, movieType } = useParams();
   const [cast, setCast] = useState(null);
 
   useEffect(() => {
-    getCredits(movieId)
+    getCredits({ movieId, movieType })
       .then(cast => setCast(cast))
       .catch(error => console.log(error.messge));
-  }, [movieId]);
+  }, [movieId, movieType]);
 
   return (
     <div>

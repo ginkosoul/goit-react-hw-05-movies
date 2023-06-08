@@ -9,7 +9,7 @@ const defaultImg =
 export const FilmListItem = ({
   id,
   title,
-  original_title,
+  name,
   release_date,
   poster_path,
   backdrop_path,
@@ -17,11 +17,12 @@ export const FilmListItem = ({
   vote_average,
   vote_count,
   genre_ids,
+  media_type,
 }) => {
   const location = useLocation();
   return (
     <li>
-      <StyledItem to={`/movies/${id}`} state={{ from: location }}>
+      <StyledItem to={`/${media_type}/${id}`} state={{ from: location }}>
         <ImgStyled
           src={
             poster_path || backdrop_path
@@ -31,12 +32,12 @@ export const FilmListItem = ({
               : defaultImg
           }
           style={{ height: '180px', width: '120px' }}
-          alt={title || original_title}
+          alt={title || name}
         />
         <div>
-          <h4 style={{ marginBottom: '4px' }}>{`${
-            title || original_title
-          } (${new Date(release_date || first_air_date).getFullYear()})`}</h4>
+          <h4 style={{ marginBottom: '4px' }}>{`${title || name} (${new Date(
+            release_date || first_air_date
+          ).getFullYear()})`}</h4>
           <b>{vote_average}/10</b>
           <p style={{ marginBottom: '4px' }}>{vote_count}</p>
           <Genres options={genre_ids} />

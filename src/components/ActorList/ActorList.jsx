@@ -7,7 +7,7 @@ export const ActorList = ({ cast }) => {
       <h2>Actors:</h2>
       <ul style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
         {cast?.map(e => (
-          <ActorCard key={e.id} {...e} />
+          <ActorCard key={e.credit_id} {...e} />
         ))}
       </ul>
     </div>
